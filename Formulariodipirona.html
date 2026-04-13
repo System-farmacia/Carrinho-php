@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra</title>
+    <link rel="stylesheet" href="Formulario de Compras do dipirona.css">
+</head>
+<body>
+
+<header>
+<!--Imagem da Logo da Farmacia -->    
+    <a href="" target="blank"><img src="Logo da Farmacia.png" alt="Logo" class="Logotipo"></a>
+    <div class="Pesquisa">
+        <input type="text" placeholder="Buscar Produtos">
+    </div>
+
+<!--Imagens das logos de conta e perfil-->
+    <a href="Conta.html" target="_blank">
+        <img src="Figura de Perfil.png" alt="Conta" class="Icone"></a>
+
+    <a href="Carrinho.html" target="_blank">
+        <img src="Figura de Compra.png" alt="Compra" class="Icone"></a>
+
+        <!--Categorias-->  
+    <div class="menu-categorias">      
+    <a href="#" class="Categoriass"><img src="3 Pontos.png"  alt="Categorias" class="Icone"><p class="paragrafo"><b>Categorias</b></p>
+    <span class="span"><b></b></span>
+    </a>
+
+    <!--Menu das Categorias-->
+  <div class="dropdown">
+   <a target="_blank" href="Medicamentos.html"><b>Medicamentos</b></a>
+   <a target="_blank" href="Dermos.html"><b>Dermos</b></a>
+   <a target="_blank" href="Infantil.html"><b>Infantil</b></a>
+   <a target="_blank" href="Vitaminas.html"><b>Vitaminas</b></a>
+   <a target="_blank" href="Promoções.html"><b>Promoções</b></a>
+  </div>
+    </div>
+
+</header>
+
+<!--Remedios-->
+<section class="produto">
+
+<div>
+<h1>Dipirona-Sodica 500mg com 10 comprimidos</h1>
+<img src="dipirona-sodica-500mg-ems-com-10-comprimidos_20865-removebg-preview.png" alt="Remedio" class="dipirona">
+<h2 class="descrição">Este medicamento é indicado como analgésico e antitérmico, utilizado no tratamento das manifestações dolorosas e febre.
+    O efeito analgésico e antipirético pode ser esperado em 30 a 60 minutos após a administração e geralmente duram aproximadamente 4 horas.</h2>
+
+    <div class="compra-box">
+
+    <h2 class="desconto">De R$ 10.00</h2><span class="span">Para</span>
+    <h2 class="preco" id="preco">R$ 7,90</h2>
+
+    <label>Quantidade:</label>
+    <input type="number" id="quantidade" value="1" min="1" onchange="atualizarPreco()">
+
+    <button class="btn-comprar">Comprar</button>
+
+    <hr>
+
+    <h3>Calcular Frete</h3>
+
+    <input type="text" id="cep" placeholder="Digite seu CEP">
+    <button class="calcular" onclick="calcularFrete()">Calcular</button>
+
+    <p id="resultado-frete"></p>
+
+    <div class="avaliacoes">
+
+    <h2>Avaliações dos clientes</h2>
+
+    <!-- NOTA MÉDIA -->
+    <div class="nota-media">
+        <span class="numero">5</span>
+        <span class="estrelas">⭐⭐⭐⭐⭐</span>
+    </div>
+
+    <!-- AVALIAÇÃO -->
+    <div class="avaliacao">
+        <p class="estrelas">⭐⭐⭐⭐⭐</p>
+        <p><b>Davi: Produto muito bom, fez efeito rápido!</b></p>
+    </div>
+
+</div>
+</div>
+
+</section>
+
+<script>
+
+function atualizarPreco(){
+    let quantidade = document.getElementById("quantidade").value;
+    let precoUnitario = 7.90;
+
+    let total = quantidade * precoUnitario;
+
+    document.getElementById("preco").innerHTML = "R$ " + total.toFixed(2);
+}
+
+// 📦 Calcular frete simples
+function calcularFrete(){
+    let cep = document.getElementById("cep").value;
+    let resultado = document.getElementById("resultado-frete");
+
+    if(cep.length < 8){
+        resultado.innerHTML = "CEP inválido!";
+        resultado.style.color = "red";
+        return;
+    }
+
+    let frete = 15.00;
+
+    resultado.innerHTML = "Frete: R$ " + frete.toFixed(2) + " (3 a 5 dias)";
+    resultado.style.color = "green";
+}
+
+</script>
+    
+</body>
+</html>
